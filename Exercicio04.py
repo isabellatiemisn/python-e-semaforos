@@ -28,8 +28,8 @@ def main ():
         pista_local = manager.Semaphore(5)
         equipes_local = [manager.Semaphore(1) for _ in range (7)]
 
-    carros = [(equipe,carro_id)for equipe in range (7)for carro_id in range (2)]
-    with multiprocessing.Pool(processes=14,initializer=init,initargs=(pista_local,equipes_local)) as pool:
+        carros = [(equipe,carro_id)for equipe in range (7)for carro_id in range (2)]
+        with multiprocessing.Pool(processes=14,initializer=init,initargs=(pista_local,equipes_local)) as pool:
                 pool.map(carro,carros)
 
 
